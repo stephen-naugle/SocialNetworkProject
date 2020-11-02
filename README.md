@@ -1,5 +1,6 @@
 Project2
 
+
 Git instructions:
 
 	Create (and switch to) new branch:
@@ -40,4 +41,4 @@ Git instructions:
 
 
 (I'm not sure about how some of this stuff works)   
-		
+
