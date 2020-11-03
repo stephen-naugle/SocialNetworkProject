@@ -20,12 +20,8 @@ export const User: React.FC<Props> = ({ user, removeUser }) => {
     return (
         <div className = "User">
             <div>
-                <h1>{user.id}</h1>
-                <p>{user.firstName}</p>
-                <p>{user.lastName}</p>
-                <p>{user.username}</p>
-                <p>{user.password}</p>
-                <p>{user.email}</p>
+                <h1> User #: {user.id}</h1>
+                <p>{user.firstName} {user.lastName} {user.username} {user.password} {user.email}</p>
             </div>
             <button onClick={() => deleteUser(user)}>Delete User</button>
         </div>

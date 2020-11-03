@@ -3,9 +3,9 @@ import { useSelector, shallowEqual, useDispatch } from 'react-redux'
 import logo from './logo.svg';
 import './App.css';
 
-import { User } from './components/User'
+import { User } from './components/ShowUsers'
 import { AddUser } from './components/AddUser'
-import { addUser, removeUser } from './store/actionCreators'
+import { addUser, removeUser } from './store/UserRegister/actionCreators'
 import { Dispatch } from 'redux'
 
 //This pulls the information from the store to be rendered (I think)
@@ -24,7 +24,7 @@ const App: React.FC = () => {
   //Renders all user profiles
   return(
     <main>
-      <h1> All Users </h1>
+      <h1> Register New User </h1>
       <AddUser saveUser={saveUser} />
       {users.map((user: IUser) => (
         <User

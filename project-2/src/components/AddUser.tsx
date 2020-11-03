@@ -31,30 +31,35 @@ export const AddUser: React.FC<Props> = ({ saveUser }) => {
                 placeholder = "Username"
                 onChange={handleUserData}
             />
+            <br/>
             <input
                 type = "text"
                 id = "password"
                 placeholder = "Password"
                 onChange={handleUserData}
             />
+            <br/>
             <input
                 type = "text"
                 id = "firstName"
                 placeholder = "First Name"
                 onChange={handleUserData}
             />
+            <br/>
             <input
                 type = "text"
                 id = "lastName"
                 placeholder = "Last Name"
                 onChange={handleUserData}
             />
+            <br/>
             <input
                 type = "text"
                 id = "email"
                 placeholder = "Email"
                 onChange={handleUserData}
             />
+            <br/>
             <button disabled = {user === undefined ? true : false}>
                 Register New User
             </button>

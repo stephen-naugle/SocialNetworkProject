@@ -17,3 +17,19 @@ type UserAction = {
 }
 type DispatchType = (args: UserAction) => UserAction
 //-------------------------------------------------------------------------------------
+
+interface IPost {
+    postId: number
+    author: string
+    title: string
+    body: string
+}
+type PostState = {
+    posts: IPost[]
+}
+type PostAction = {
+    type: string
+    post: IPost
+}
+type DispatchType = (args: PostAction) => PostAction
+//-------------------------------------------------------------------------
