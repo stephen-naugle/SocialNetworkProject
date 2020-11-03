@@ -1,0 +1,18 @@
+<!-- 
+    src/
+        actions/    --> Contains the functions to initiate Http requests via fetch/axios 
+                            (example file: user.ts for http requests related to users. Here we implement relevant action types.)
+        actiontypes/--> This folder contains the names of the actions that will be used. 
+                            (single-line export statements, e.g. export const FETCH_USER_DETAILS = "FETCH_USER_DETAILS")
+        components/ --> Modular items to be displayed in the view (header, footer, login, etc)
+        
+        
+
+
+
+
+
+
+
+
+-->
