@@ -5,10 +5,11 @@
 	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"
 	>
 <hibernate-mapping package="com.web.model">
+	
 	<class name="User">
 		
 		<!-- Primary Key -->
-		<id name="username" type="text" column="username">
+		<id name="username" type="string" column="username">
 			<generator class="native"></generator>
 		</id>
 
@@ -17,21 +18,21 @@
 			<column name="password" />   <!-- not-null="true" unique="true" />   -->
 		</property>
 
-		<property name="email" type="text" column="email" />
+		<property name="email" type="string" column="email" />
 
-		<property name="firstname" type="text" />
+		<property name="firstname" type="string" />
 		
-		<property name="lastname" />
+		<property name="lastname" type="string" />
 		
-		<property name="phonenumber" />
+		<property name="phonenumber" type="string" />
 		
-		<property name="occupation" />
+		<property name="occupation" type="string" />
 		
-		<property name="bio" />
+		<property name="bio" type="string" />
 		
-		<property name="address" />
+		<property name="address" type="string" />
 		
-		<property name="dob" />
+		<property name="dob" type="string" />
 
 	</class>
 	
@@ -43,9 +44,9 @@
 		</id>
 		
 		<!-- Properties -->
-		<property name="author" />
-		<property name="title" />
-		<property name="body" />		
+		<property name="author" type="string" />
+		<property name="title" type="string" />
+		<property name="body" type="string" />		
 	
 	</class>
 	
@@ -57,9 +58,9 @@
 		</id>
 		
 		<!-- Properties -->
-		<property name="postid" />
-		<property name="author" />
-		<property name="comment" />		
+		<property name="postid" type="int" />
+		<property name="author" type="string" />
+		<property name="comment" type="string" />		
 	
 	</class>
 	
