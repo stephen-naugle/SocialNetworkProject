@@ -39,6 +39,9 @@
 		-->
 		<property name="hibernate.hbm2ddl.auto">create</property>
 		<mapping resource="hibernate.hbm.xml"/>
+		<mapping class="com.web.model.Comment" />
+		<mapping class="com.web.model.Post" />
+		<mapping class="com.web.model.User" />
 
 	</session-factory>
 
