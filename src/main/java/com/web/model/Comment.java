@@ -1,10 +1,13 @@
 package com.web.model;
 
+import javax.persistence.Entity;
+
 //TODO: Optional model, may not use
 
 /**
  * @author Andrew Pearse Comment Model
  */
+
 public class Comment {
 
 	private int commentId;
