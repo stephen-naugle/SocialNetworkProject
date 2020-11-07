@@ -26,14 +26,14 @@ public class PostDaoTest {
 	public void init() {
 		pd = new PostDao();
 		post = new Post(1, "some username", "Testing Post", "This post is all about testing.");
-		pd.create(post);
+		pd.save(post);
 	}
 	
 	@Test
 	@Rollback(true)
 	public void testAddPost() {
 		Post p = new Post();
-		assertNotNull(pd.create(p));
+		assertNotNull(pd.save(p));
 	}
 	
 	@Test
@@ -47,7 +47,7 @@ public class PostDaoTest {
 	public void testFindAllByAuthor() {
 		List<Post> posts = new ArrayList<>();
 		posts.add(post);
-		assertEquals(posts.get(0).toString(), pd.findAllByAuthor(post.getAuthor()).get(0).toString());
+		assertEquals(posts.get(0).toString(), pd.findAll().get(0).toString());
 	}
 
 	@Test
@@ -78,8 +78,8 @@ public class PostDaoTest {
 	@Test(expected = HibernateException.class)
 	@Rollback(true)
 	public void testDuplicatePostThrowsException() {
-		pd.create(post);
-		pd.create(post);
+		pd.save(post);
+		pd.save(post);
 	}
 	
 }

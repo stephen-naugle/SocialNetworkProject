@@ -47,4 +47,16 @@ public class UserController {
 	public User deleteUser(String username) {
 		return us.deleteUser(username);
 	}
+	
+	/**
+	 * Creates new user in DB
+	 * @param User to be added
+	 * @return the user that was added
+	 */
+	public User addUser(User user) {
+		return us.addUser(user);
+	}
+
+
+
 }
