@@ -1,42 +1,42 @@
-package com.web.util;
-
-import java.time.LocalDate;
-import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.NoResultException;
-import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
-
-import com.web.dao.CommentDao;
-import com.web.dao.PostDao;
-import com.web.dao.UserDao;
-import com.web.model.Comment;
-import com.web.model.Post;
-import com.web.model.User;
-
-public class TestSystem {
-	
-//	private static EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence.createEntityManagerFactory("Project2");
-	
-
-	public static void main(String[] args) {
-		UserDao ud = new UserDao();
-		User u = new User("batman", "justice", "batman@jleague.com", "bruce", "wayne", "1234567899", 
-			"superhero", "I love justice", "123 Wayne Manor", LocalDate.of(1966, 06, 23), null);
-		Post p = new Post(0, "batman", "Hello World", "I'm batman");
-		Comment c = new Comment(0, 0, "batman", "Hey Everybody, I'm Batman");
-		PostDao pd = new PostDao();
-		CommentDao cd = new CommentDao();
-		ud.save(u);
-		pd.save(p);
-		cd.save(c);
-		System.out.println(ud.findById("bruce"));
-		
-		
-	}
+//package com.web.util;
+//
+//import java.time.LocalDate;
+//import java.util.List;
+//
+//import javax.persistence.EntityManager;
+//import javax.persistence.EntityManagerFactory;
+//import javax.persistence.EntityTransaction;
+//import javax.persistence.NoResultException;
+//import javax.persistence.Persistence;
+//import javax.persistence.TypedQuery;
+//
+//import com.web.dao.CommentDao;
+//import com.web.dao.PostDao;
+//import com.web.dao.UserDao;
+//import com.web.model.Comment;
+//import com.web.model.Post;
+//import com.web.model.User;
+//
+//public class TestSystem {
+//	
+////	private static EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence.createEntityManagerFactory("Project2");
+//	
+//
+//	public static void main(String[] args) {
+//		UserDao ud = new UserDao();
+//		User u = new User("batman", "justice", "batman@jleague.com", "bruce", "wayne", "1234567899", 
+//			"superhero", "I love justice", "123 Wayne Manor", LocalDate.of(1966, 06, 23), null);
+//		Post p = new Post(0, "batman", "Hello World", "I'm batman");
+//		Comment c = new Comment(0, 0, "batman", "Hey Everybody, I'm Batman");
+//		PostDao pd = new PostDao();
+//		CommentDao cd = new CommentDao();
+//		ud.save(u);
+//		pd.save(p);
+//		cd.save(c);
+//		System.out.println(ud.findById("bruce"));
+//		
+//		
+//	}
 		
 		
 //		addUser("batman", "justice", "batman@jleague.com", "bruce", "wayne", "1234567899", 
@@ -50,7 +50,7 @@ public class TestSystem {
 		
 		
 //		ENTITY_MANAGER_FACTORY.close();
-	}
+	//}
 	
 //	public static void addUser(String username, String password, String email, String firstname,
 //									String lastname, String phoneNumber, String occupation, String bio,
