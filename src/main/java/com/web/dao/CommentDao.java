@@ -52,11 +52,4 @@ private SessionFactory sessfact;
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
-	public Comment findByName(String firstname) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

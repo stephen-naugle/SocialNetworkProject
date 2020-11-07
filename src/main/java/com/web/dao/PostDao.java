@@ -59,10 +59,4 @@ private SessionFactory sessfact;
 		return null;
 	}
 
-	@Override
-	public Post findByName(String firstname) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }
