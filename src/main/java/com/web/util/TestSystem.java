@@ -25,7 +25,7 @@ public class TestSystem {
 	public static void main(String[] args) {
 		UserDao ud = new UserDao();
 		User u = new User("batman", "justice", "batman@jleague.com", "bruce", "wayne", "1234567899", 
-			"superhero", "I love justice", "123 Wayne Manor", LocalDate.of(1966, 06, 23));
+			"superhero", "I love justice", "123 Wayne Manor", LocalDate.of(1966, 06, 23), null);
 		Post p = new Post(0, "batman", "Hello World", "I'm batman");
 		Comment c = new Comment(0, 0, "batman", "Hey Everybody, I'm Batman");
 		PostDao pd = new PostDao();
@@ -33,7 +33,7 @@ public class TestSystem {
 		ud.save(u);
 		pd.save(p);
 		cd.save(c);
-		System.out.println(ud.findByName("bruce"));
+		System.out.println(ud.findById("bruce"));
 		
 		
 	}

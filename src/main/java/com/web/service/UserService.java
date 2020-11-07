@@ -47,4 +47,13 @@ public class UserService {
 	public User deleteUser(String username) {
 		return ud.delete(username);
 	}
+	
+	/**
+	 * Adds user to DB
+	 * @param user to be added
+	 * @return use that was added
+	 */
+	public User addUser(User user) {
+		return ud.save(user);
+	}
 }
