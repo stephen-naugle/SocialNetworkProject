@@ -2,25 +2,37 @@ package com.web.dao;
 
 import java.util.List;
 
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import javax.transaction.Transactional;
+
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.web.model.Comment;
-import com.web.util.ProjectTwoUtil;
 
+
+@Repository
+@Transactional
 public class CommentDao implements DaoContract<Comment, Integer> {
 
+private SessionFactory sessfact;
+	
+	@Autowired
+	public CommentDao(SessionFactory sessfact) {
+		this.sessfact = sessfact;
+	}
+
+	public CommentDao() {
+	}
+	
 	@Override
 	public List<Comment> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return sessfact.openSession().createQuery("from Comment", Comment.class).list();
 	}
 
 	@Override
 	public Comment findById(Integer i) {
-		Session sess = ProjectTwoUtil.getSessionFactory().openSession();
-		Comment c = sess.get(Comment.class, i);
-		return c;
+		return sessfact.openSession().get(Comment.class, i);
 	}
 
 	@Override
@@ -31,10 +43,7 @@ public class CommentDao implements DaoContract<Comment, Integer> {
 
 	@Override
 	public Comment save(Comment t) {
-		Session sess = ProjectTwoUtil.getSessionFactory().openSession();
-		Transaction tx = sess.beginTransaction();
-		sess.persist(t);
-		tx.commit();
+		sessfact.openSession().save(t);
 		return t;
 	}
 

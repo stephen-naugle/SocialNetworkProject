@@ -2,12 +2,23 @@ package com.web.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+
+
 /**
  * @author Andrew Pearse
  * User model
  */
-public class User {
 
+@Entity
+public class User {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String username;
 	private String password;
 	private String email;
@@ -33,6 +44,7 @@ public class User {
 	 * @param address current address of the user
 	 * @param dob date of birth of the user
 	 */
+	
 	public User(String username, String password, String email, String firstname, String lastname, String phoneNumber,
 			String occupation, String bio, String address, LocalDate dob) {
 		super();

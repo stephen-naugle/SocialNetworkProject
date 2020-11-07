@@ -3,13 +3,18 @@ package com.web.repo;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.transaction.Transactional;
+
 import org.hibernate.HibernateException;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.test.annotation.Rollback;
+
+import com.web.dao.PostDao;
 import com.web.model.Post;
 
 @Transactional

@@ -2,25 +2,43 @@ package com.web.dao;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.web.model.Post;
+import com.web.model.User;
 import com.web.util.ProjectTwoUtil;
 
+
+@Repository
+@Transactional
 public class PostDao implements DaoContract<Post, Integer>{
 
+	
+private SessionFactory sessfact;
+	
+	@Autowired
+	public PostDao(SessionFactory sessfact) {
+		this.sessfact = sessfact;
+	}
+
+	public PostDao() {
+	}
+	
+	
 	@Override
 	public List<Post> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return sessfact.openSession().createQuery("from Post", Post.class).list();
 	}
 
 	@Override
 	public Post findById(Integer i) {
-		Session sess = ProjectTwoUtil.getSessionFactory().openSession();
-		Post p = sess.get(Post.class, i);
-		return p;
+		return sessfact.openSession().get(Post.class, i);
 	}
 
 	@Override
@@ -31,11 +49,8 @@ public class PostDao implements DaoContract<Post, Integer>{
 
 	@Override
 	public Post save(Post t) {
-		Session sess = ProjectTwoUtil.getSessionFactory().openSession();
-		Transaction tx = sess.beginTransaction();
-		sess.persist(t);
-		tx.commit();
-		return null;
+		sessfact.openSession().save(t);
+		return t;
 	}
 
 	@Override
