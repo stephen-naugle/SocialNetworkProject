@@ -1,6 +1,7 @@
 package com.web.model;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,6 +31,7 @@ public class User {
 	private String address;
 	private LocalDate dob;
 
+	private Set<Post> likedPosts;
 	
 	/**
 	 * Creates a new user
@@ -43,10 +45,11 @@ public class User {
 	 * @param bio short description of the user
 	 * @param address current address of the user
 	 * @param dob date of birth of the user
+	 * @param likedPosts posts that a user has liked
 	 */
 	
 	public User(String username, String password, String email, String firstname, String lastname, String phoneNumber,
-			String occupation, String bio, String address, LocalDate dob) {
+			String occupation, String bio, String address, LocalDate dob, Set<Post> likedPosts) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -58,6 +61,7 @@ public class User {
 		this.bio = bio;
 		this.address = address;
 		this.dob = dob;
+		this.likedPosts = likedPosts;
 	}
 
 	public User() {
@@ -144,11 +148,20 @@ public class User {
 		this.dob = dob;
 	}
 
+	public Set<Post> getLikedPosts() {
+		return likedPosts;
+	}
+	
+	public void setLikedPosts(Set<Post> likedPosts) {
+		this.likedPosts = likedPosts;
+	}
+
 	@Override
 	public String toString() {
 		return "User [username=" + username + ", password=" + password + ", email=" + email + ", firstname=" + firstname
 				+ ", lastname=" + lastname + ", phoneNumber=" + phoneNumber + ", occupation=" + occupation + ", bio="
 				+ bio + ", address=" + address + ", dob=" + dob + "]";
 	}
+
 
 }

@@ -26,7 +26,6 @@ public class UserDao implements DaoContract<User, String> {
 	public UserDao() {
 	}
 
-
 	@Override
 	public List<User> findAll() {
 		return sessfact.openSession().createQuery("from User", User.class).list();
@@ -54,13 +53,4 @@ public class UserDao implements DaoContract<User, String> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
-	public User findByName(String firstname) {
-//		Session sess = ProjectTwoUtil.getSessionFactory().openSession();
-//		
-//		return sess.createQuery("from User where firstname = '"+firstname+"'", User.class).list().get(0);
-		return null;
-	}
-
 }

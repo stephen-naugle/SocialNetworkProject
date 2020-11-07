@@ -9,6 +9,5 @@ public interface DaoContract <T, I>{
 	T update(T t);
 	T save(T t);
 	T delete(I i);
-	T findByName(String firstname);
 
 }
