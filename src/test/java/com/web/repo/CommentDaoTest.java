@@ -7,14 +7,15 @@ import static org.junit.Assert.assertNull;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.test.annotation.Rollback;
 
 import com.web.model.Comment;
 
-//future annotations for spring
-//@ContextConfiguration(locations = "")
-//@Transactional
+@Transactional
 public class CommentDaoTest {
 	private CommentDao cd;
 	private Comment comment;
@@ -27,44 +28,41 @@ public class CommentDaoTest {
 	}
 	
 	@Test
-//	@Rollback(true)
+	@Rollback(true)
 	public void testAddComment() {
 		Comment c = new Comment();
 		assertNotNull(cd.create(c));
 	}
 	
 	@Test
-//	@Rollback(true)
 	public void testFindAll() {
 		List<Comment> comments = new ArrayList<>();
 		comments.add(comment);
-		assertEquals(comments, cd.findAll());
+		assertEquals(comments.get(0).toString(), cd.findAll().get(0).toString());
 	}
 	
 	@Test
-//	@Rollback(true)
 	public void testFindById() {
 		List<Comment> comments = new ArrayList<>();
 		comments.add(comment);
-		assertEquals(comments, cd.findById(comment.getCommentId()));
+		assertEquals(comment.toString(), cd.findById(comment.getCommentId()).toString());
 	}
 	
 	@Test
-//	@Rollback(true)
+	@Rollback(true)
 	public void testUpdateComment() {
 		comment.setComment("changed");
 		assertNotNull(cd.update(comment));
-		assertEquals("changed", cd.FindById(comment.getCommentId()).getComment());
+		assertEquals("changed", cd.findById(comment.getCommentId()).getComment());
 	}
 	
 	@Test
-//	@Rollback(true)
+	@Rollback(true)
 	public void testDeleteCommentSuccessfully() {
 		assertNotNull(cd.delete(comment.getCommentId()));
 	}
 
 	@Test
-//	@Rollback(true)
 	public void testDeleteCommentUnsuccessfully() {
 		Comment c = new Comment();
 		c.setCommentId(2);
@@ -72,7 +70,7 @@ public class CommentDaoTest {
 	}
 	
 	@Test
-//	@Rollback(true)
+	@Rollback(true)
 	public void testDuplicateCommentThrowsException() {
 		cd.create(comment);
 		cd.create(comment);
