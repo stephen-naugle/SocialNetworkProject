@@ -30,7 +30,7 @@ public class UserServiceTest {
 	public void init() {
 		us = new UserService();
 		us.setUd(udMock);
-		user = new User("some username", "some pass", "some email", "some first", "some last", "some num",
+		user = new User(1, "some username", "some pass", "some email", "some first", "some last", "some num",
 				"some occupation", "some bio", "some address", LocalDate.now(), null);
 	}
 	

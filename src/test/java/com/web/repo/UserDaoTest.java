@@ -23,7 +23,7 @@ public class UserDaoTest {
 	@Before
 	public void init() {
 		ud = new UserDao();
-		user = new User("some username", "some pass", "some email", "some first", "some last", "some num",
+		user = new User(1, "some username", "some pass", "some email", "some first", "some last", "some num",
 				"some occupation", "some bio", "some address", LocalDate.now(), null);
 		ud.save(user);
 	}

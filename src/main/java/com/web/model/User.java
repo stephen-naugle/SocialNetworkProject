@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 
 
@@ -20,6 +21,7 @@ public class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int userId;
 	private String username;
 	private String password;
 	private String email;
@@ -30,7 +32,7 @@ public class User {
 	private String bio;
 	private String address;
 	private LocalDate dob;
-
+	@Transient
 	private Set<Post> likedPosts;
 	
 	/**
@@ -48,9 +50,10 @@ public class User {
 	 * @param likedPosts posts that a user has liked
 	 */
 	
-	public User(String username, String password, String email, String firstname, String lastname, String phoneNumber,
+	public User(int userId, String username, String password, String email, String firstname, String lastname, String phoneNumber,
 			String occupation, String bio, String address, LocalDate dob, Set<Post> likedPosts) {
 		super();
+		this.userId = userId;
 		this.username = username;
 		this.password = password;
 		this.email = email;

@@ -4,13 +4,13 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import org.hibernate.Session;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.web.model.User;
-import com.web.util.ProjectTwoUtil;
+
 
 @Repository
 @Transactional
@@ -18,12 +18,19 @@ public class UserDao implements DaoContract<User, String> {
 
 	private SessionFactory sessfact;
 	
-	@Autowired
-	public UserDao(SessionFactory sessfact) {
-		this.sessfact = sessfact;
+	
+	
+//	@Autowired
+//	public UserDao(SessionFactory sessfact) {
+//		this.sessfact = sessfact;
+//	}
+//
+	public UserDao() {
 	}
 
-	public UserDao() {
+	@Autowired
+	public void setSessfact(SessionFactory sessfact) {
+		this.sessfact = sessfact;
 	}
 
 	/**

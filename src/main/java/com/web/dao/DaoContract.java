@@ -2,6 +2,8 @@ package com.web.dao;
 
 import java.util.List;
 
+
+
 public interface DaoContract <T, I>{
 	
 	List<T> findAll();
