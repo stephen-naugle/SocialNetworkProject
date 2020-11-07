@@ -2,26 +2,39 @@ package com.web.dao;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.web.model.User;
 import com.web.util.ProjectTwoUtil;
 
+@Repository
+@Transactional
 public class UserDao implements DaoContract<User, String> {
+
+	private SessionFactory sessfact;
+	
+	@Autowired
+	public UserDao(SessionFactory sessfact) {
+		this.sessfact = sessfact;
+	}
+
+	public UserDao() {
+	}
+
 
 	@Override
 	public List<User> findAll() {
-		List<User> list = ProjectTwoUtil.getSessionFactory().openSession()
-				.createNativeQuery("select * from user", User.class).list();
-		return list;
+		return sessfact.openSession().createQuery("from User", User.class).list();
 	}
 
 	@Override
 	public User findById(String i) {
-		// TODO Auto-generated method stub
-		return null;
+		return sessfact.openSession().get(User.class, i);
 	}
 
 	@Override
@@ -31,13 +44,8 @@ public class UserDao implements DaoContract<User, String> {
 	}
 
 	@Override
-	public User save(User t) {
-		
-		SessionFactory sesfact = ProjectTwoUtil.getSessionFactory();
-		Session sess = sesfact.openSession();
-		Transaction tx = sess.beginTransaction();
-		sess.save(t);
-		tx.commit();
+	public User save(User t) {	
+		sessfact.openSession().save(t);
 		return t;
 	}
 
@@ -49,9 +57,10 @@ public class UserDao implements DaoContract<User, String> {
 
 	@Override
 	public User findByName(String firstname) {
-		Session sess = ProjectTwoUtil.getSessionFactory().openSession();
-		
-		return sess.createQuery("from User where firstname = '"+firstname+"'", User.class).list().get(0);
+//		Session sess = ProjectTwoUtil.getSessionFactory().openSession();
+//		
+//		return sess.createQuery("from User where firstname = '"+firstname+"'", User.class).list().get(0);
+		return null;
 	}
 
 }
