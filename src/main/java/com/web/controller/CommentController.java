@@ -21,7 +21,7 @@ import com.web.service.CommentService;
 public class CommentController {
 
 	private CommentService cs;
-
+	@Autowired
 	public void setCs(CommentService cs) {
 		this.cs = cs;
 	}
