@@ -2,13 +2,29 @@ package com.web.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.expression.ParseException;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.web.model.User;
 import com.web.service.UserService;
 
+@Controller
+@CrossOrigin
+@RequestMapping("/user.app")
 public class UserController {
 
+	
 	private UserService us;
-
+	@Autowired
 	public void setUs(UserService us) {
 		this.us = us;
 	}
@@ -17,7 +33,9 @@ public class UserController {
 	 * Finds all users within the DB
 	 * @return list of all users
 	 */
-	public List<User> findAll(){
+	@RequestMapping("/alluser")
+	@GetMapping
+	public @ResponseBody List<User> findAll(){
 		return us.findAll();
 	}
 	
@@ -26,7 +44,9 @@ public class UserController {
 	 * @param username the id of the user
 	 * @return User with matching username, null if not
 	 */
-	public User findById(String username) {
+	@RequestMapping("/finduserbyusername")
+	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+	public User findById(@RequestBody String username) {
 		return us.findById(username);
 	}
 	
@@ -53,7 +73,10 @@ public class UserController {
 	 * @param User to be added
 	 * @return the user that was added
 	 */
-	public User addUser(User user) {
+	@RequestMapping("/newuser")
+	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public User addUser(@RequestBody User user) throws ParseException{
 		return us.addUser(user);
 	}
 

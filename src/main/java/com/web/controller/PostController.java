@@ -2,13 +2,26 @@ package com.web.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.web.model.Post;
 import com.web.service.PostService;
 
+@Controller
+@CrossOrigin
+@RequestMapping("/post.app")
 public class PostController {
 
 	private PostService ps;
-
+	@Autowired
 	public void setPs(PostService ps) {
 		this.ps = ps;
 	}
@@ -17,6 +30,8 @@ public class PostController {
 	 * finds all posts
 	 * @return a list of all posts
 	 */
+	@RequestMapping("/allposts")
+	@GetMapping
 	public List<Post> findAll(){
 		return ps.findAll();
 	}
@@ -62,7 +77,10 @@ public class PostController {
 	 * @param username unique identifier for user
 	 * @return list of posts by user
 	 */
-	public List<Post> findAllByUser(String username) {
+	@RequestMapping("/newpost")
+	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public List<Post> findAllByUser(@RequestBody String username) {
 		return ps.findAllByUser(username);
 	}
 }
