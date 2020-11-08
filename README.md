@@ -1,5 +1,4 @@
 Project2
-edit
 Git instructions:
 
 	Create (and switch to) new branch:
