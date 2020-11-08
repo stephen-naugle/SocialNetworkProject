@@ -2,6 +2,8 @@ package com.web.dao;
 
 import java.util.List;
 
+import com.web.model.Comment;
+
 
 
 public interface DaoContract <T, I>{

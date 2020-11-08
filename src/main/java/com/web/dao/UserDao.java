@@ -7,7 +7,13 @@ import javax.transaction.Transactional;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.web.model.User;
 
@@ -18,13 +24,6 @@ public class UserDao implements DaoContract<User, String> {
 
 	private SessionFactory sessfact;
 	
-	
-	
-//	@Autowired
-//	public UserDao(SessionFactory sessfact) {
-//		this.sessfact = sessfact;
-//	}
-//
 	public UserDao() {
 	}
 
@@ -37,7 +36,7 @@ public class UserDao implements DaoContract<User, String> {
 	 * @returns a list of all users in the DB
 	 */
 	@Override
-	public List<User> findAll() {
+	public @ResponseBody List<User> findAll() {
 		return sessfact.openSession().createQuery("from User", User.class).list();
 	}
 

@@ -6,7 +6,11 @@ import javax.transaction.Transactional;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.web.model.Comment;
 
@@ -56,7 +60,7 @@ private SessionFactory sessfact;
 	 * @return the deleted comment
 	 */
 	@Override
-	public Comment save(Comment t) {
+	public Comment save(@RequestBody Comment t) {
 		sessfact.openSession().save(t);
 		return t;
 	}
