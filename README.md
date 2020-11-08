@@ -1,7 +1,5 @@
 Project2
 
-changing for pipeline test
-
 Git instructions:
 
 	Create (and switch to) new branch:
