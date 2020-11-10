@@ -31,7 +31,7 @@ public class User {
 	private String occupation;
 	private String bio;
 	private String address;
-	private LocalDate dob;
+	private String dob;
 	@Transient
 	private Set<Post> likedPosts;
 	
@@ -57,7 +57,7 @@ public class User {
 	}
 
 	public User(int userId, String username, String password, String email, String firstname, String lastname,
-			String phoneNumber, String occupation, String bio, String address, LocalDate dob, Set<Post> likedPosts) {
+			String phoneNumber, String occupation, String bio, String address, String dob, Set<Post> likedPosts) {
 		super();
 		this.userId = userId;
 		this.username = username;
@@ -143,6 +143,31 @@ public class User {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	public String getDob() {
+		return dob;
+	}
+
+	public void setDob(String dob) {
+		this.dob = dob;
+	}
+
+	public Set<Post> getLikedPosts() {
+		return likedPosts;
+	}
+
+	public void setLikedPosts(Set<Post> likedPosts) {
+		this.likedPosts = likedPosts;
 	}
 
 	@Override

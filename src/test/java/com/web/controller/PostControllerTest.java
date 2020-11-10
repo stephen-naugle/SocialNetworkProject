@@ -15,6 +15,7 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import com.web.model.Post;
+import com.web.model.User;
 import com.web.service.PostService;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -29,7 +30,9 @@ public class PostControllerTest {
 	public void init() {
 		pc = new PostController();
 		pc.setPs(psMock);
-		post = new Post(1, "some username", "Testing Post", "This post is all about testing.");
+		User user = new User(1, "some username", "some pass", "some email", "some first", "some last", "some num",
+				"some occupation", "some bio", "some address", "some date", null);
+		post = new Post(1, user, "Testing Post", "This post is all about testing.");
 	}
 	
 	@Test

@@ -16,6 +16,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import com.web.dao.PostDao;
 import com.web.model.Post;
+import com.web.model.User;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PostServiceTest {
@@ -29,7 +30,9 @@ public class PostServiceTest {
 	public void init() {
 		ps = new PostService();
 		ps.setPd(pdMock);
-		post = new Post(1, "some username", "Testing Post", "This post is all about testing.");
+		User user = new User(1, "some username", "some pass", "some email", "some first", "some last", "some num",
+				"some occupation", "some bio", "some address", "some date", null);
+		post = new Post(1, user, "Testing Post", "This post is all about testing.");
 	}
 	
 	@Test
