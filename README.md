@@ -1,5 +1,5 @@
 Project2
-
+edit to build in jenkins
 Git instructions:
 
 	Create (and switch to) new branch:
