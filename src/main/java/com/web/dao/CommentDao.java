@@ -70,8 +70,8 @@ private SessionFactory sessfact;
 	 * @return the deleted comment 
 	 */
 	@Override
-	public Comment delete(Integer i) {
-		// TODO Auto-generated method stub
+	public Comment delete(Comment t) {
+		sessfact.openSession().delete(t);
 		return null;
 	}
 }

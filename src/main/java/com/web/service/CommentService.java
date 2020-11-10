@@ -56,7 +56,7 @@ public class CommentService {
 	 * @return created comment if successful, null if not
 	 */
 	
-	public Comment createComment(@RequestBody Comment comment) {
+	public Comment createComment(Comment comment) {
 		return cd.save(comment);
 	}
 	
@@ -65,7 +65,7 @@ public class CommentService {
 	 * @param id unique identifier for the comment
 	 * @return deleted comment if exists, null if it does not
 	 */
-	public Comment deleteComment(int id) {
-		return cd.delete(id);
+	public Comment deleteComment(Comment comment) {
+		return cd.delete(comment);
 	}
 }

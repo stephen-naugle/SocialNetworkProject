@@ -72,9 +72,9 @@ private SessionFactory sessfact;
 	 * @return the deleted post 
 	 */
 	@Override
-	public Post delete(Integer i) {
-		// TODO Auto-generated method stub
-		return null;
+	public Post delete(Post t) {
+		sessfact.openSession().delete(t);
+		return t;
 	}
 
 }

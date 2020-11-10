@@ -55,8 +55,8 @@ public class UserDao implements DaoContract<User, String> {
 	 */
 	@Override
 	public User update(User t) {
-		// TODO Auto-generated method stub
-		return null;
+		sessfact.openSession().update(t);
+		return t;
 	}
 
 	/**
@@ -74,8 +74,8 @@ public class UserDao implements DaoContract<User, String> {
 	 * @return the deleted user 
 	 */
 	@Override
-	public User delete(String i) {
-		// TODO Auto-generated method stub
-		return null;
+	public User delete(User t) {
+		sessfact.openSession().delete(t);
+		return t;
 	}
 }
