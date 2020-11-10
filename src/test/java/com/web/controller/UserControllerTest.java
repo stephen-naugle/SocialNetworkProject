@@ -62,7 +62,7 @@ public class UserControllerTest {
 	
 	@Test
 	public void testDeleteUser() {
-		when(usMock.deleteUser(user));
+		when(usMock.deleteUser(user)).thenReturn(user);
 		assertNotNull(uc.deleteUser(user));
 	}
 }

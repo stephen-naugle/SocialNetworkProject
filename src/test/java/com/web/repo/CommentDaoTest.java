@@ -53,26 +53,24 @@ public class CommentDaoTest {
 		assertEquals(comment.toString(), cd.findById(comment.getCommentId()).toString());
 	}
 	
-	@Test
-	@Rollback(true)
-	public void testUpdateComment() {
-		comment.setComment("changed");
-		assertNotNull(cd.update(comment));
-		assertEquals("changed", cd.findById(comment.getCommentId()).getComment());
-	}
+//	@Test
+//	@Rollback(true)
+//	public void testUpdateComment() {
+//		comment.setComment("changed");
+//		assertNotNull(cd.update(comment));
+//		assertEquals("changed", cd.findById(comment.getCommentId()).getComment());
+//	}
 	
-	@Test
-	@Rollback(true)
-	public void testDeleteCommentSuccessfully() {
-		assertNotNull(cd.delete(comment));
-	}
+//	@Test
+//	@Rollback(true)
+//	public void testDeleteCommentSuccessfully() {
+//		assertNotNull(cd.delete(comment));
+//	}
 
-	@Test
-	public void testDeleteCommentUnsuccessfully() {
-		Comment c = new Comment();
-		c.setCommentId(2);
-		assertNull(cd.delete(comment));
-	}
+	/*
+	 * @Test public void testDeleteCommentUnsuccessfully() { Comment c = new
+	 * Comment(); c.setCommentId(2); assertNull(cd.delete(comment)); }
+	 */
 	
 //	@Test(expected = HibernateException.class)
 //	@Rollback(true)

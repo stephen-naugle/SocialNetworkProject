@@ -60,7 +60,7 @@ public class CommentServiceTest {
 	
 	@Test
 	public void testDeleteComment() {
-		when(cdMock.delete(comment));
+		when(cdMock.delete(comment)).thenReturn(comment);
 		assertNotNull(cs.deleteComment(comment));
 	}
 }

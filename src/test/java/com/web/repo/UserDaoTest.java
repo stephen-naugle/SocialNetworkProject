@@ -67,13 +67,13 @@ public class UserDaoTest {
 		assertNotNull(ud.delete(user));
 	}
 
-	@Test
-	public void testDeleteUserUnsuccessfully() {
-		User u = new User();
-		u.setUsername("this should fail");
-		assertNull(ud.delete(u));
-	}
-	
+//	@Test
+//	public void testDeleteUserUnsuccessfully() {
+//		User u = new User();
+//		u.setUsername("this should fail");
+//		assertNull(ud.delete(u));
+//	}
+//	
 //	@Test(expected = HibernateException.class)
 //	@Rollback(true)
 //	public void testDuplicateUserThrowsException() {

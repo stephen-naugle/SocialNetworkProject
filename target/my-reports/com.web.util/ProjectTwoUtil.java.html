@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProjectTwoUtil.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Project2</a> &gt; <a href="index.source.html" class="el_package">com.web.util</a> &gt; <span class="el_source">ProjectTwoUtil.java</span></div><h1>ProjectTwoUtil.java</h1><pre class="source lang-java linenums">package com.web.util;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+<span class="nc" id="L6">public class ProjectTwoUtil {</span>
+	
+	// need try catch block using the .forName to grab the driver for the war app
+		static {
+			try {
+<span class="nc" id="L11">				Class.forName(&quot;org.postgresql.Driver&quot;);</span>
+<span class="nc" id="L12">			} catch (ClassNotFoundException e) {</span>
+<span class="nc" id="L13">				e.printStackTrace();</span>
+<span class="nc" id="L14">			}</span>
+<span class="nc" id="L15">		}</span>
+	
+	private static SessionFactory sesfact;
+	
+	private static SessionFactory buildSessionFactory() {
+<span class="nc" id="L20">		Configuration config = new Configuration();</span>
+<span class="nc" id="L21">		config.configure(&quot;hibernate.cfg.xml&quot;);</span>
+<span class="nc" id="L22">		return config.buildSessionFactory();</span>
+	}
+	
+	public static SessionFactory getSessionFactory() {
+<span class="nc bnc" id="L26" title="All 2 branches missed.">		if(sesfact==null) {</span>
+<span class="nc" id="L27">			sesfact = buildSessionFactory();</span>
+		}
+<span class="nc" id="L29">		return sesfact;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

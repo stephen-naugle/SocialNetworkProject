@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>User.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Project2</a> &gt; <a href="index.source.html" class="el_package">com.web.model</a> &gt; <span class="el_source">User.java</span></div><h1>User.java</h1><pre class="source lang-java linenums">package com.web.model;
+
+import java.time.LocalDate;
+import java.util.Set;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+
+
+
+/**
+ * @author Andrew Pearse
+ * User model
+ */
+
+@Entity
+public class User {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int userId;
+	private String username;
+	private String password;
+	private String email;
+	private String firstname;
+	private String lastname;
+	private String phoneNumber;
+	private String occupation;
+	private String bio;
+	private String address;
+	private LocalDate dob;
+	@Transient
+	private Set&lt;Post&gt; likedPosts;
+	
+	/**
+	 * Creates a new user
+	 * @param username unique identifier for user
+	 * @param password key to log in to user account
+	 * @param email email address for user
+	 * @param firstname first name of user
+	 * @param lastname last name of user
+	 * @param phoneNumber phone number for user
+	 * @param occupation job of user
+	 * @param bio short description of the user
+	 * @param address current address of the user
+	 * @param dob date of birth of the user
+	 * @param likedPosts posts that a user has liked
+	 */
+	
+	
+
+	public User() {
+<span class="fc" id="L56">		super();</span>
+<span class="fc" id="L57">	}</span>
+
+	public User(int userId, String username, String password, String email, String firstname, String lastname,
+			String phoneNumber, String occupation, String bio, String address, LocalDate dob, Set&lt;Post&gt; likedPosts) {
+<span class="fc" id="L61">		super();</span>
+<span class="fc" id="L62">		this.userId = userId;</span>
+<span class="fc" id="L63">		this.username = username;</span>
+<span class="fc" id="L64">		this.password = password;</span>
+<span class="fc" id="L65">		this.email = email;</span>
+<span class="fc" id="L66">		this.firstname = firstname;</span>
+<span class="fc" id="L67">		this.lastname = lastname;</span>
+<span class="fc" id="L68">		this.phoneNumber = phoneNumber;</span>
+<span class="fc" id="L69">		this.occupation = occupation;</span>
+<span class="fc" id="L70">		this.bio = bio;</span>
+<span class="fc" id="L71">		this.address = address;</span>
+<span class="fc" id="L72">		this.dob = dob;</span>
+<span class="fc" id="L73">		this.likedPosts = likedPosts;</span>
+<span class="fc" id="L74">	}</span>
+
+	public String getUsername() {
+<span class="fc" id="L77">		return username;</span>
+	}
+
+	public void setUsername(String username) {
+<span class="nc" id="L81">		this.username = username;</span>
+<span class="nc" id="L82">	}</span>
+
+	public String getPassword() {
+<span class="nc" id="L85">		return password;</span>
+	}
+
+	public void setPassword(String password) {
+<span class="nc" id="L89">		this.password = password;</span>
+<span class="nc" id="L90">	}</span>
+
+	public String getEmail() {
+<span class="nc" id="L93">		return email;</span>
+	}
+
+	public void setEmail(String email) {
+<span class="nc" id="L97">		this.email = email;</span>
+<span class="nc" id="L98">	}</span>
+
+	public String getFirstname() {
+<span class="nc" id="L101">		return firstname;</span>
+	}
+
+	public void setFirstname(String firstname) {
+<span class="nc" id="L105">		this.firstname = firstname;</span>
+<span class="nc" id="L106">	}</span>
+
+	public String getLastname() {
+<span class="nc" id="L109">		return lastname;</span>
+	}
+
+	public void setLastname(String lastname) {
+<span class="nc" id="L113">		this.lastname = lastname;</span>
+<span class="nc" id="L114">	}</span>
+
+	public String getPhoneNumber() {
+<span class="nc" id="L117">		return phoneNumber;</span>
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+<span class="nc" id="L121">		this.phoneNumber = phoneNumber;</span>
+<span class="nc" id="L122">	}</span>
+
+	public String getOccupation() {
+<span class="nc" id="L125">		return occupation;</span>
+	}
+
+	public void setOccupation(String occupation) {
+<span class="nc" id="L129">		this.occupation = occupation;</span>
+<span class="nc" id="L130">	}</span>
+
+	public String getBio() {
+<span class="nc" id="L133">		return bio;</span>
+	}
+
+	public void setBio(String bio) {
+<span class="nc" id="L137">		this.bio = bio;</span>
+<span class="nc" id="L138">	}</span>
+
+	public String getAddress() {
+<span class="nc" id="L141">		return address;</span>
+	}
+
+	public void setAddress(String address) {
+<span class="nc" id="L145">		this.address = address;</span>
+<span class="nc" id="L146">	}</span>
+
+	@Override
+	public String toString() {
+<span class="fc" id="L150">		return &quot;User [userId=&quot; + userId + &quot;, username=&quot; + username + &quot;, password=&quot; + password + &quot;, email=&quot; + email</span>
+				+ &quot;, firstname=&quot; + firstname + &quot;, lastname=&quot; + lastname + &quot;, phoneNumber=&quot; + phoneNumber
+				+ &quot;, occupation=&quot; + occupation + &quot;, bio=&quot; + bio + &quot;, address=&quot; + address + &quot;, dob=&quot; + dob
+				+ &quot;, likedPosts=&quot; + likedPosts + &quot;]&quot;;
+	}
+
+	/*
+	 * public LocalDate getDob() { return dob; }
+	 * 
+	 * public void setDob(LocalDate dob) { this.dob = dob; }
+	 */
+
+	/*
+	 * public Set&lt;Post&gt; getLikedPosts() { return likedPosts; }
+	 * 
+	 * public void setLikedPosts(Set&lt;Post&gt; likedPosts) { this.likedPosts =
+	 * likedPosts; }
+	 */
+
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

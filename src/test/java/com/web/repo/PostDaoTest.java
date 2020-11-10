@@ -61,13 +61,13 @@ public class PostDaoTest {
 		assertEquals(post.toString(), pd.findById(post.getPostId()).toString());
 	}
 	
-	@Test
-	@Rollback(true)
-	public void	testUpdatePost() {
-		post.setBody("changed");
-		assertNotNull(pd.update(post));
-		assertEquals("changed", pd.findById(post.getPostId()).getBody());
-	}
+//	@Test
+//	@Rollback(true)
+//	public void	testUpdatePost() {
+//		post.setBody("changed");
+//		assertNotNull(pd.update(post));
+//		assertEquals("changed", pd.findById(post.getPostId()).getBody());
+//	}
 	
 	@Test
 	@Rollback(true)
@@ -75,11 +75,11 @@ public class PostDaoTest {
 		assertNotNull(pd.delete(post));
 	}
 
-	@Test
-	public void testDeletePostUnsuccessfully() {
-		Post p = new Post();
-		assertNull(pd.delete(p));
-	}
+//	@Test
+//	public void testDeletePostUnsuccessfully() {
+//		Post p = new Post();
+//		assertNull(pd.delete(p));
+//	}
 
 //	@Test(expected = HibernateException.class)
 //	@Rollback(true)

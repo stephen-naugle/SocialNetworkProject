@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CommentController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Project2</a> &gt; <a href="index.source.html" class="el_package">com.web.controller</a> &gt; <span class="el_source">CommentController.java</span></div><h1>CommentController.java</h1><pre class="source lang-java linenums">package com.web.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.web.model.Comment;
+import com.web.service.CommentService;
+
+@RestController
+@CrossOrigin
+@RequestMapping(&quot;/comment&quot;)
+<span class="fc" id="L23">public class CommentController {</span>
+
+	private CommentService cs;
+	@Autowired
+	public void setCs(CommentService cs) {
+<span class="fc" id="L28">		this.cs = cs;</span>
+<span class="fc" id="L29">	}</span>
+	
+	/**
+	 * finds all comments by post ID
+	 * @return list of comments related to specified post ID
+	 */
+	@GetMapping(&quot;/findcommentsbypid&quot;)
+	public List&lt;Comment&gt; findAllByPost(@RequestParam int pid) {
+<span class="nc" id="L37">		return cs.findAllByPost(pid);</span>
+	}
+	
+	/**
+	 * finds comment by its ID
+	 * @param id unique identifier for comment
+	 * @return
+	 */
+	@GetMapping(&quot;/findcommentsbyid&quot;)
+	public Comment findById(@RequestParam int id) {
+<span class="fc" id="L47">		return cs.findById(id);</span>
+	}
+	
+	/**
+	 * updates comment information
+	 * @param comment Comment object with updated information
+	 * @return updated comment if successful, null if not
+	 */
+	@PostMapping(&quot;/update&quot;)
+	public Comment updateComment(@RequestBody Comment comment) {
+<span class="fc" id="L57">		return cs.updateComment(comment);</span>
+	}
+	
+	/**
+	 * creates a comment
+	 * @param comment Comment object with created information
+	 * @return created comment if successful, null if not
+	 */
+	@PostMapping(&quot;/newcomment&quot;)
+	public Comment createComment(@RequestBody Comment comment) {
+<span class="fc" id="L67">		return cs.createComment(comment);</span>
+	}
+	
+	/**
+	 * deletes a comment from the DB
+	 * @param id unique identifier for the comment
+	 * @return deleted comment if exists, null if it does not
+	 */
+	@PostMapping(&quot;/delete&quot;)
+	public Comment deleteComment(@RequestBody Comment comment) {
+<span class="fc" id="L77">		return cs.deleteComment(comment);</span>
+	}
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

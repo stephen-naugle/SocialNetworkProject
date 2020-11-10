@@ -1,0 +1,15 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+Project2,com.web.util,ProjectTwoUtil,28,0,2,0,12,0,5,0,4,0
+Project2,com.web.dao,UserDao,15,30,0,0,3,9,2,5,2,5
+Project2,com.web.dao,PostDao,5,37,0,0,3,9,2,5,2,5
+Project2,com.web.dao,CommentDao,12,30,0,0,5,7,3,4,3,4
+Project2,com.web.controller,PostController,5,31,0,0,1,8,1,7,1,7
+Project2,com.web.controller,CommentController,5,27,0,0,1,7,1,6,1,6
+Project2,com.web.controller,UserController,5,26,0,0,1,7,1,6,1,6
+Project2,com.web,Driver,3,0,0,0,1,0,1,0,1,0
+Project2,com.web.service,CommentService,19,28,2,0,3,7,3,6,2,6
+Project2,com.web.service,PostService,16,32,0,0,3,8,2,7,2,7
+Project2,com.web.service,UserService,0,31,0,0,0,8,0,7,0,7
+Project2,com.web.model,Comment,25,48,0,0,11,10,7,4,7,4
+Project2,com.web.model,Post,32,48,0,0,14,10,9,4,9,4
+Project2,com.web.model,User,60,112,0,0,26,18,17,4,17,4
