@@ -69,13 +69,13 @@ public class PostDaoTest {
 	@Test
 	@Rollback(true)
 	public void testDeletePostSuccessfully() {
-		assertNotNull(pd.delete(post.getPostId()));
+		assertNotNull(pd.delete(post));
 	}
 
 	@Test
 	public void testDeletePostUnsuccessfully() {
 		Post p = new Post();
-		assertNull(pd.delete(p.getPostId()));
+		assertNull(pd.delete(p));
 	}
 
 //	@Test(expected = HibernateException.class)

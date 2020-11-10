@@ -62,8 +62,8 @@ public class UserServiceTest {
 	
 	@Test
 	public void testDeleteUser() {
-		when(udMock.delete(user.getUsername())).thenReturn(user);
-		assertNotNull(us.deleteUser(user.getUsername()));
+		when(udMock.delete(user));
+		assertNotNull(us.deleteUser(user));
 	}
 	
 }

@@ -60,7 +60,7 @@ public class CommentControllerTest {
 	
 	@Test
 	public void testDeleteComment() {
-		when(csMock.deleteComment(comment.getCommentId())).thenReturn(comment);
-		assertNotNull(ct.deleteComment(comment.getCommentId()));
+		when(csMock.deleteComment(comment));
+		assertNotNull(ct.deleteComment(comment));
 	}
 }

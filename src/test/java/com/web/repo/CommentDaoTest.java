@@ -64,14 +64,14 @@ public class CommentDaoTest {
 	@Test
 	@Rollback(true)
 	public void testDeleteCommentSuccessfully() {
-		assertNotNull(cd.delete(comment.getCommentId()));
+		assertNotNull(cd.delete(comment));
 	}
 
 	@Test
 	public void testDeleteCommentUnsuccessfully() {
 		Comment c = new Comment();
 		c.setCommentId(2);
-		assertNull(cd.delete(comment.getCommentId()));
+		assertNull(cd.delete(comment));
 	}
 	
 //	@Test(expected = HibernateException.class)

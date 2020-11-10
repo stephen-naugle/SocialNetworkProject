@@ -64,14 +64,14 @@ public class UserDaoTest {
 	@Test
 	@Rollback(true)
 	public void testDeleteUserSuccessfully() {
-		assertNotNull(ud.delete(user.getUsername()));
+		assertNotNull(ud.delete(user));
 	}
 
 	@Test
 	public void testDeleteUserUnsuccessfully() {
 		User u = new User();
 		u.setUsername("this should fail");
-		assertNull(ud.delete(u.getUsername()));
+		assertNull(ud.delete(u));
 	}
 	
 //	@Test(expected = HibernateException.class)
