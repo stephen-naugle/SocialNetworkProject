@@ -71,7 +71,7 @@ public class PostControllerTest {
 	
 	@Test
 	public void testDeletePost() {
-		when(psMock.deletePost(post));
+		when(psMock.deletePost(post)).thenReturn(post);
 		assertNotNull(pc.deletePost(post));
 	}
 }

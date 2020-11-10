@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CommentService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Project2</a> &gt; <a href="index.source.html" class="el_package">com.web.service</a> &gt; <span class="el_source">CommentService.java</span></div><h1>CommentService.java</h1><pre class="source lang-java linenums">package com.web.service;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.web.dao.CommentDao;
+import com.web.model.Comment;
+
+@Service
+<span class="fc" id="L17">public class CommentService {</span>
+
+	private CommentDao cd;
+	@Autowired
+	public void setCd(CommentDao cd) {
+<span class="fc" id="L22">		this.cd = cd;</span>
+<span class="fc" id="L23">	}</span>
+	
+	/**
+	 * finds all comments by post ID
+	 * @return list of comments related to specified post ID
+	 */
+	public List&lt;Comment&gt; findAllByPost(int pid) {
+<span class="nc" id="L30">		return cd.findAll().stream()</span>
+<span class="nc bnc" id="L31" title="All 2 branches missed.">				.filter(c -&gt; c.getPostId() == pid)</span>
+<span class="nc" id="L32">				.collect(Collectors.toList());</span>
+	}
+	
+	/**
+	 * finds comment by its ID
+	 * @param id unique identifier for comment
+	 * @return
+	 */
+	public Comment findById(int id) {
+<span class="fc" id="L41">		return cd.findById(id);</span>
+	}
+	
+	/**
+	 * updates comment information
+	 * @param comment Comment object with updated information
+	 * @return updated comment if successful, null if not
+	 */
+	public Comment updateComment(Comment comment) {
+<span class="fc" id="L50">		return cd.update(comment);</span>
+	}
+	
+	/**
+	 * creates a comment
+	 * @param comment Comment object with created information
+	 * @return created comment if successful, null if not
+	 */
+	
+	public Comment createComment(Comment comment) {
+<span class="fc" id="L60">		return cd.save(comment);</span>
+	}
+	
+	/**
+	 * deletes a comment from the DB
+	 * @param id unique identifier for the comment
+	 * @return deleted comment if exists, null if it does not
+	 */
+	public Comment deleteComment(Comment comment) {
+<span class="fc" id="L69">		return cd.delete(comment);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

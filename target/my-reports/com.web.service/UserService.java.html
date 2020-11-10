@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Project2</a> &gt; <a href="index.source.html" class="el_package">com.web.service</a> &gt; <span class="el_source">UserService.java</span></div><h1>UserService.java</h1><pre class="source lang-java linenums">package com.web.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.web.dao.UserDao;
+import com.web.model.User;
+
+@Service
+<span class="fc" id="L19">public class UserService {</span>
+
+	private UserDao ud;
+	@Autowired
+	public void setUd(UserDao ud) {
+<span class="fc" id="L24">		this.ud = ud;</span>
+<span class="fc" id="L25">	}</span>
+	
+	/**
+	 * Finds all users within the DB
+	 * @return list of all users
+	 */
+	public List&lt;User&gt; findAll(){
+<span class="fc" id="L32">		return ud.findAll();</span>
+	}
+	
+	/**
+	 * Finds a user by their username
+	 * @param username the id of the user
+	 * @return User with matching username, null if not
+	 */
+	public User findById(String username) {
+<span class="fc" id="L41">		return ud.findById(username);</span>
+	}
+	
+	/**
+	 * Updates user information
+	 * @param user new User object to update existing user
+	 * @return New user information, or null if no user with the username exists
+	 */
+	public User updateUserInformation(User user) {
+<span class="fc" id="L50">		return ud.update(user);</span>
+	}
+	
+	/**
+	 * Deletes user from DB
+	 * @param username id of the user
+	 * @return the User object that was removed from the DB
+	 */
+	public User deleteUser(User user) {
+<span class="fc" id="L59">		return ud.delete(user);</span>
+	}
+	
+	/**
+	 * Adds user to DB
+	 * @param user to be added
+	 * @return use that was added
+	 */
+	
+	public User addUser(User user) {
+<span class="fc" id="L69">		return ud.save(user);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
