@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  * 
@@ -16,7 +18,9 @@ public class Post {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int postId;
-	private String author;
+	@ManyToOne
+	@JoinColumn(name="FK_user")
+	private User author;
 	private String title;
 	private String body;
 	private int likes;
@@ -29,7 +33,7 @@ public class Post {
 	 * @param body body of the post
 	 */
 	
-	public Post(int postId, String owner, String title, String body) {
+	public Post(int postId, User owner, String title, String body) {
 		super();
 		this.postId = postId;
 		this.author = owner;
@@ -58,11 +62,11 @@ public class Post {
 		this.postId = postId;
 	}
 
-	public String getAuthor() {
+	public User getAuthor() {
 		return author;
 	}
 
-	public void setAuthor(String owner) {
+	public void setAuthor(User owner) {
 		this.author = owner;
 	}
 
