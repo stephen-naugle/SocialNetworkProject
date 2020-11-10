@@ -12,6 +12,6 @@ public interface DaoContract <T, I>{
 	T findById(I i);
 	T update(T t);
 	T save(T t);
-	T delete(I i);
+	T delete(T t);
 
 }

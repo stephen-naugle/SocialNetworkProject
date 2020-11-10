@@ -57,8 +57,8 @@ public class PostService {
 	 * @param id unique identifier for the post
 	 * @return deleted post if successful, null if not
 	 */
-	public Post deletePost(int id) {
-		return pd.delete(id);
+	public Post deletePost(Post post) {
+		return pd.delete(post);
 	}
 	
 	/**

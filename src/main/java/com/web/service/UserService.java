@@ -55,8 +55,8 @@ public class UserService {
 	 * @param username id of the user
 	 * @return the User object that was removed from the DB
 	 */
-	public User deleteUser(String username) {
-		return ud.delete(username);
+	public User deleteUser(User user) {
+		return ud.delete(user);
 	}
 	
 	/**
@@ -66,7 +66,6 @@ public class UserService {
 	 */
 	
 	public User addUser(User user) {
-		System.out.println("are we in service?");
 		return ud.save(user);
 	}
 }

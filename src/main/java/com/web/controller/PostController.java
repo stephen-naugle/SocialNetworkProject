@@ -11,13 +11,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.web.model.Post;
 import com.web.service.PostService;
 
-@Controller
+@RestController
 @CrossOrigin
-@RequestMapping("/post.app")
+@RequestMapping("/post")
 public class PostController {
 
 	private PostService ps;
@@ -30,8 +31,7 @@ public class PostController {
 	 * finds all posts
 	 * @return a list of all posts
 	 */
-	@RequestMapping("/allposts")
-	@GetMapping
+	@GetMapping("/allposts")
 	public List<Post> findAll(){
 		return ps.findAll();
 	}
@@ -41,7 +41,8 @@ public class PostController {
 	 * @param id unique ID of the post
 	 * @return post with matching ID, null if no matching ID found
 	 */
-	public Post findById(int id) {
+	@PostMapping("/findbypostid")
+	public Post findById(@RequestBody int id) {
 		return ps.findById(id);
 	}
 	
@@ -50,7 +51,8 @@ public class PostController {
 	 * @param post new Post object with updated information
 	 * @return updated Post if successful, null if not
 	 */
-	public Post editPost(Post post) {
+	@PostMapping("/update")
+	public Post editPost(@RequestBody Post post) {
 		return ps.editPost(post);
 	}
 	
@@ -59,7 +61,8 @@ public class PostController {
 	 * @param post new Post Object to be stored in the DB
 	 * @return created post if successful, null if not
 	 */
-	public Post createPost(Post post) {
+	@PostMapping("/create")
+	public Post createPost(@RequestBody Post post) {
 		return ps.createPost(post);
 	}
 	
@@ -68,8 +71,9 @@ public class PostController {
 	 * @param id unique identifier for the post
 	 * @return deleted post if successful, null if not
 	 */
-	public Post deletePost(int id) {
-		return ps.deletePost(id);
+	@PostMapping("/delete")
+	public Post deletePost(@RequestBody Post post) {
+		return ps.deletePost(post);
 	}
 	
 	/**
@@ -77,9 +81,7 @@ public class PostController {
 	 * @param username unique identifier for user
 	 * @return list of posts by user
 	 */
-	@RequestMapping("/newpost")
-	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-	@ResponseBody
+	@PostMapping("/newpost")
 	public List<Post> findAllByUser(@RequestBody String username) {
 		return ps.findAllByUser(username);
 	}

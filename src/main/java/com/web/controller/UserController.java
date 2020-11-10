@@ -13,13 +13,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.web.model.User;
 import com.web.service.UserService;
 
-@Controller
+@RestController
 @CrossOrigin
-@RequestMapping("/user.app")
+@RequestMapping("/user")
 public class UserController {
 
 	
@@ -33,9 +34,8 @@ public class UserController {
 	 * Finds all users within the DB
 	 * @return list of all users
 	 */
-	@RequestMapping("/alluser")
-	@GetMapping
-	public @ResponseBody List<User> findAll(){
+	@GetMapping("/allusers")
+	public List<User> findAll(){
 		return us.findAll();
 	}
 	
@@ -44,8 +44,7 @@ public class UserController {
 	 * @param username the id of the user
 	 * @return User with matching username, null if not
 	 */
-	@RequestMapping("/finduserbyusername")
-	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping("/findbyusername")
 	public User findById(@RequestBody String username) {
 		return us.findById(username);
 	}
@@ -55,7 +54,8 @@ public class UserController {
 	 * @param user new User object to update existing user
 	 * @return New user information, or null if no user with the username exists
 	 */
-	public User updateUserInformation(User user) {
+	@PostMapping("/update")
+	public User updateUserInformation(@RequestBody User user) {
 		return us.updateUserInformation(user);
 	}
 	
@@ -64,8 +64,9 @@ public class UserController {
 	 * @param username id of the user
 	 * @return the User object that was removed from the DB
 	 */
-	public User deleteUser(String username) {
-		return us.deleteUser(username);
+	@PostMapping("/delete")
+	public User deleteUser(@RequestBody User user) {
+		return us.deleteUser(user);
 	}
 	
 	/**
@@ -73,9 +74,7 @@ public class UserController {
 	 * @param User to be added
 	 * @return the user that was added
 	 */
-	@RequestMapping("/newuser")
-	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-	@ResponseBody
+	@PostMapping("/newuser")
 	public User addUser(@RequestBody User user) throws ParseException{
 		return us.addUser(user);
 	}
