@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.web.model.LoginObject;
 import com.web.model.User;
 import com.web.service.UserService;
 
@@ -78,10 +79,10 @@ public class UserController {
 	}
 	
 	@PostMapping("/login")
-	public boolean loginUser(@RequestBody String username, String password) throws NoSuchAlgorithmException {
+	public boolean loginUser(@RequestBody LoginObject loginDetails) throws NoSuchAlgorithmException {
 		MessageDigest md = MessageDigest.getInstance("MD5");
-		byte[] usernameByteArray = (username + "sticky").getBytes();
-		byte[] passwordByteArray = (password + "sticky").getBytes();
+		byte[] usernameByteArray = (loginDetails.getUsername() + "sticky").getBytes();
+		byte[] passwordByteArray = (loginDetails.getPassword() + "sticky").getBytes();
 		
 		boolean verify = false;
 		try {
