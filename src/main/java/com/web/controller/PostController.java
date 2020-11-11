@@ -81,6 +81,7 @@ public class PostController {
 	 * @param username unique identifier for user
 	 * @return list of posts by user
 	 */
+	
 	@PostMapping("/findpostsbyuser")
 	public List<Post> findAllByUser(@RequestBody String username) {
 		return ps.findAllByUser(username);
