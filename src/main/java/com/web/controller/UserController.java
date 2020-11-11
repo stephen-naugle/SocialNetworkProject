@@ -4,6 +4,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
+import javax.xml.bind.annotation.adapters.HexBinaryAdapter;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.expression.ParseException;
@@ -90,12 +92,14 @@ public class UserController {
 	public boolean loginUser(@RequestBody LoginObject loginDetails) throws NoSuchAlgorithmException {
 		logger.info("Verifying user.");
 		MessageDigest md = MessageDigest.getInstance("MD5");
-		byte[] usernameByteArray = (loginDetails.getUsername() + "sticky").getBytes();
-		byte[] passwordByteArray = (loginDetails.getPassword() + "sticky").getBytes();
+		byte[] passwordByteArray = (loginDetails.getUsername() + loginDetails.getPassword() + "sticky").getBytes();
+		//md.digest(passwordByteArray);
+		
+		String hashedPassword = (new HexBinaryAdapter()).marshal(md.digest(passwordByteArray));
 		
 		boolean verify = false;
 		try {
-			if(us.findById((md.digest(usernameByteArray)).toString()).getPassword().equals((md.digest(passwordByteArray)).toString())){
+			if(us.findById(loginDetails.getUsername()).getPassword().equalsIgnoreCase(hashedPassword)){
 				logger.info("Verified.");
 				verify = true;
 			}
