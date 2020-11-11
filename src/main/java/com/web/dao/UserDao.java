@@ -49,7 +49,7 @@ public class UserDao implements DaoContract<User, String> {
 	 */
 	@Override
 	public User findById(String i) {
-		return (User) sessfact.openSession().createNativeQuery("select * from user where username = " + i);
+		return sessfact.openSession().createQuery("from user where username = " + i, User.class).getSingleResult();
 	}
 
 	/**
