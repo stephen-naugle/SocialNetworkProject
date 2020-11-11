@@ -1,5 +1,5 @@
 Project2
-jlknfglkjmfght
+
 Git instructions:
 
 	Create (and switch to) new branch:
