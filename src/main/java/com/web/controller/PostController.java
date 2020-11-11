@@ -2,6 +2,7 @@ package com.web.controller;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,8 @@ import com.web.service.PostService;
 @RequestMapping("/post")
 public class PostController {
 
+	private static Logger logger = Logger.getLogger(PostController.class);
+	
 	private PostService ps;
 	@Autowired
 	public void setPs(PostService ps) {
@@ -33,6 +36,7 @@ public class PostController {
 	 */
 	@GetMapping("/allposts")
 	public List<Post> findAll(){
+		logger.info("Found all posts.");
 		return ps.findAll();
 	}
 	
@@ -43,6 +47,7 @@ public class PostController {
 	 */
 	@PostMapping("/findbypostid")
 	public Post findById(@RequestBody int id) {
+		logger.info("Found post by id.");
 		return ps.findById(id);
 	}
 	
@@ -53,6 +58,7 @@ public class PostController {
 	 */
 	@PostMapping("/update")
 	public Post editPost(@RequestBody Post post) {
+		logger.info("Updated post.");
 		return ps.editPost(post);
 	}
 	
@@ -63,6 +69,7 @@ public class PostController {
 	 */
 	@PostMapping("/create")
 	public Post createPost(@RequestBody Post post) {
+		logger.info("Created post.");
 		return ps.createPost(post);
 	}
 	
@@ -73,6 +80,7 @@ public class PostController {
 	 */
 	@PostMapping("/delete")
 	public Post deletePost(@RequestBody Post post) {
+		logger.info("Deleted post.");
 		return ps.deletePost(post);
 	}
 	
@@ -84,6 +92,7 @@ public class PostController {
 	
 	@PostMapping("/findpostsbyuser")
 	public List<Post> findAllByUser(@RequestBody String username) {
+		logger.info("Found all posts by username.");
 		return ps.findAllByUser(username);
 	}
 }

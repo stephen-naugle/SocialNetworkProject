@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-
+import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.web.controller.PostController;
 import com.web.model.User;
 
 
@@ -22,6 +23,8 @@ import com.web.model.User;
 @Transactional
 public class UserDao implements DaoContract<User, String> {
 
+	private static Logger logger = Logger.getLogger(UserDao.class);
+	
 	private SessionFactory sessfact;
 	
 	public UserDao() {

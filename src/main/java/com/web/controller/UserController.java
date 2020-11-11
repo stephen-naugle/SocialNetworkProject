@@ -4,6 +4,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.expression.ParseException;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,6 +24,7 @@ import com.web.service.UserService;
 @RequestMapping("/user")
 public class UserController {
 
+	private static Logger logger = Logger.getLogger(UserController.class);
 	
 	private UserService us;
 	@Autowired
@@ -36,6 +38,7 @@ public class UserController {
 	 */
 	@GetMapping("/allusers")
 	public List<User> findAll(){
+		logger.info("Found all users.");
 		return us.findAll();
 	}
 	
@@ -46,6 +49,7 @@ public class UserController {
 	 */
 	@PostMapping("/findbyusername")
 	public User findById(@RequestBody String username) {
+		logger.info("Found user by username.");
 		return us.findById(username);
 	}
 	
@@ -56,6 +60,7 @@ public class UserController {
 	 */
 	@PostMapping("/update")
 	public User updateUserInformation(@RequestBody User user) {
+		logger.info("Updated user.");
 		return us.updateUserInformation(user);
 	}
 	
@@ -66,6 +71,7 @@ public class UserController {
 	 */
 	@PostMapping("/delete")
 	public User deleteUser(@RequestBody User user) {
+		logger.info("Deleted user.");
 		return us.deleteUser(user);
 	}
 	
@@ -76,11 +82,13 @@ public class UserController {
 	 */
 	@PostMapping("/newuser")
 	public User addUser(@RequestBody User user) throws ParseException{
+		logger.info("Registered user.");
 		return us.addUser(user);
 	}
 	
 	@PostMapping("/login")
 	public boolean loginUser(@RequestBody LoginObject loginDetails) throws NoSuchAlgorithmException {
+		logger.info("Verifying user.");
 		MessageDigest md = MessageDigest.getInstance("MD5");
 		byte[] usernameByteArray = (loginDetails.getUsername() + "sticky").getBytes();
 		byte[] passwordByteArray = (loginDetails.getPassword() + "sticky").getBytes();
@@ -88,10 +96,12 @@ public class UserController {
 		boolean verify = false;
 		try {
 			if(us.findById((md.digest(usernameByteArray)).toString()).getPassword().equals((md.digest(passwordByteArray)).toString())){
+				logger.info("Verified.");
 				verify = true;
 			}
 		}catch (Exception e){
-			e.printStackTrace();
+			logger.info("User could not be verified.");
+			logger.warn(e);
 		}
 		
 		return verify;
@@ -99,6 +109,7 @@ public class UserController {
 	
 	@GetMapping("/search")
 		public List<User> searchByUsername(@RequestParam String username){
+			logger.info("Found all users with similar user names.");
 			return us.searchByUsername(username);
 		}
 	
