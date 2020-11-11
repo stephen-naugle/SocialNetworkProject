@@ -59,9 +59,10 @@ public class UserDao implements DaoContract<User, String> {
 	 */
 	@Override
 	public User update(User t) {
-		Session sess = sessfact.openSession();
-		sess.update(t);
-		sess.flush();
+		sessfact.getCurrentSession().update(t);
+		//Session sess = sessfact.openSession();
+		//sess.update(t);
+		//sessfact.flush();
 		return t;
 	}
 
