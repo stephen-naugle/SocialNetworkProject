@@ -47,8 +47,8 @@ public class UserController {
 	 * @param username the id of the user
 	 * @return User with matching username, null if not
 	 */
-	@PostMapping("/findbyusername")
-	public User findById(@RequestBody String username) {
+	@GetMapping("/findbyusername")
+	public User findById(@RequestParam String username) {
 		logger.info("Found user by username.");
 		return us.findById(username);
 	}
