@@ -1,5 +1,5 @@
 Project2
-ihy
+bijuh
 Git instructions:
 
 	Create (and switch to) new branch:
