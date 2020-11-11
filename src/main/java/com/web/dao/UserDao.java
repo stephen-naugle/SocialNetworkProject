@@ -5,6 +5,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.apache.log4j.Logger;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -58,7 +59,9 @@ public class UserDao implements DaoContract<User, String> {
 	 */
 	@Override
 	public User update(User t) {
-		sessfact.openSession().update(t);
+		Session sess = sessfact.openSession();
+		sess.update(t);
+		sess.flush();
 		return t;
 	}
 

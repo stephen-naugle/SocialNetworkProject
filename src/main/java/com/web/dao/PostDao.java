@@ -53,8 +53,10 @@ private SessionFactory sessfact;
 	 */
 	@Override
 	public Post update(Post t) {
-		// TODO Auto-generated method stub
-		return null;
+		Session sess = sessfact.openSession();
+		sess.update(t);
+		sess.flush();
+		return t;
 	}
 
 	/**
