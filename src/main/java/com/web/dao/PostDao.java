@@ -4,15 +4,11 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.web.model.Post;
-import com.web.model.User;
-import com.web.util.ProjectTwoUtil;
 
 
 @Repository
@@ -75,6 +71,10 @@ private SessionFactory sessfact;
 	public Post delete(Post t) {
 		sessfact.openSession().delete(t);
 		return t;
+	}
+	
+	public List<Post> findAllByUser(String username){
+		return sessfact.openSession().createQuery("from post where fk_user = " + new UserDao().findById(username).getUserId(), Post.class).list();
 	}
 
 }
