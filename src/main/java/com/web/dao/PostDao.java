@@ -62,6 +62,7 @@ private SessionFactory sessfact;
 	 */
 	@Override
 	public Post save(Post t) {
+		t.setAuthor(ud.findById(t.getAuthor().getUsername()));
 		sessfact.openSession().save(t);
 		return t;
 	}
