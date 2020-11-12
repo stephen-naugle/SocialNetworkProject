@@ -56,8 +56,7 @@ public class User {
 	 * @param likedPosts  posts that a user has liked
 	 */
 	public User(int userId, String username, String password, String email, String firstname, String lastname,
-			String phoneNumber, String occupation, String bio, String address, String dob, Set<Post> posts,
-			Set<Post> likedPosts) {
+			String phoneNumber, String occupation, String bio, String address, String dob, Set<Post> posts) {
 		super();
 		this.userId = userId;
 		this.username = username;
@@ -71,7 +70,6 @@ public class User {
 		this.address = address;
 		this.dob = dob;
 		this.posts = posts;
-		this.likedPosts = likedPosts;
 	}
 
 	public User() {
