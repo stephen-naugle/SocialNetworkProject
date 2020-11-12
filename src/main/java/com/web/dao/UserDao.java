@@ -89,4 +89,8 @@ public class UserDao implements DaoContract<User, String> {
 	public List<User> searchByUsername(String username){
 		return sessfact.openSession().createQuery("from User where username like '%"+username+"%'", User.class).list();
 	}
+	
+	public User findByEmail(String email) {
+		return sessfact.openSession().createQuery("from User where email like '"+email+"'", User.class).uniqueResult();
+	}
 }

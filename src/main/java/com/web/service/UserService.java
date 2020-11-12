@@ -73,4 +73,8 @@ public class UserService {
 	public List<User> searchByUsername(String username){
 		return ud.searchByUsername(username);
 	}
+	
+	public User findByEmail(String email) {
+		return ud.findByEmail(email);
+	}
 }

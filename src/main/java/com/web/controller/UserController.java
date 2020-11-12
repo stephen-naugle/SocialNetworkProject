@@ -112,9 +112,15 @@ public class UserController {
 	}
 	
 	@GetMapping("/search")
-		public List<User> searchByUsername(@RequestParam String username){
-			logger.info("Found all users with similar user names.");
-			return us.searchByUsername(username);
-		}
+	public List<User> searchByUsername(@RequestParam String username){
+		logger.info("Found all users with similar user names.");
+		return us.searchByUsername(username);
+	}
+	
+	@GetMapping("/findbyemail")
+	public User findByEmail(@RequestParam String email) {
+		logger.info("Found user by email.");
+		return us.findByEmail(email);
+	}
 	
 }
