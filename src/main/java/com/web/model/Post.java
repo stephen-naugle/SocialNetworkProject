@@ -19,9 +19,11 @@ public class Post {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int postId;
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="FK_user")
+	
+	@ManyToOne
+	@JoinColumn(name="FK_user", referencedColumnName = "userId")
 	private User author;
+	
 	private String title;
 	private String body;
 	private int likes;
@@ -89,7 +91,7 @@ public class Post {
 
 	@Override
 	public String toString() {
-		return "Post [postId=" + postId + ", owner=" + author + ", title=" + title + ", body=" + body + "]";
+		return "Post [postId=" + postId + ", title=" + title + ", body=" + body + "]";
 	}
 
 }

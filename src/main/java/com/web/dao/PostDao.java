@@ -19,6 +19,9 @@ public class PostDao implements DaoContract<Post, Integer>{
 private SessionFactory sessfact;
 	
 	@Autowired
+	private UserDao ud;
+
+	@Autowired
 	public PostDao(SessionFactory sessfact) {
 		this.sessfact = sessfact;
 	}
@@ -74,7 +77,7 @@ private SessionFactory sessfact;
 	}
 	
 	public List<Post> findAllByUser(String username){
-		return sessfact.openSession().createQuery("from post where fk_user = " + new UserDao().findById(username).getUserId(), Post.class).list();
+		return sessfact.openSession().createQuery("from Post where fk_user = " + ud.findById(username).getUserId(), Post.class).list();
 	}
 
 }

@@ -2,6 +2,7 @@ package com.web.model;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -33,7 +34,8 @@ public class User {
 	private String bio;
 	private String address;
 	private String dob;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "author")
+	
+	@OneToMany(mappedBy = "author", cascade = CascadeType.PERSIST)
 	private Set<Post> posts;
 
 	@Transient
@@ -165,7 +167,7 @@ public class User {
 	}
 
 	public Set<Post> getPosts() {
-		return posts;
+		return null;
 	}
 
 	public void setPosts(Set<Post> posts) {
@@ -184,7 +186,7 @@ public class User {
 	public String toString() {
 		return "User [userId=" + userId + ", username=" + username + ", password=" + password + ", email=" + email
 				+ ", firstname=" + firstname + ", lastname=" + lastname + ", phoneNumber=" + phoneNumber
-				+ ", occupation=" + occupation + ", bio=" + bio + ", address=" + address + ", dob=" + dob + "]";
+				+ ", occupation=" + occupation + ", bio=" + bio + ", address=" + address + ", dob=" + dob + ", posts=" + posts + "]";
 	}
 
 	/*
