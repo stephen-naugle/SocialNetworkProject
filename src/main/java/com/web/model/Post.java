@@ -27,6 +27,7 @@ public class Post {
 	private String title;
 	private String body;
 	private int likes;
+	private String uploadedImage;
 
 	/**
 	 * Creates a new post
@@ -36,12 +37,13 @@ public class Post {
 	 * @param body body of the post
 	 */
 	
-	public Post(int postId, User author, String title, String body) {
+	public Post(int postId, User author, String title, String body, String uploadedImage) {
 		super();
 		this.postId = postId;
 		this.author = author;
 		this.title = title;
 		this.body = body;
+		this.uploadedImage = uploadedImage;
 	}
 
 	public Post() {
@@ -92,6 +94,14 @@ public class Post {
 	@Override
 	public String toString() {
 		return "Post [postId=" + postId + ", title=" + title + ", body=" + body + "]";
+	}
+
+	public String getUploadedImage() {
+		return uploadedImage;
+	}
+
+	public void setUploadedImage(String uploadedImage) {
+		this.uploadedImage = uploadedImage;
 	}
 
 }

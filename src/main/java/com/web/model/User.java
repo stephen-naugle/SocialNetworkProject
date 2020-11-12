@@ -34,6 +34,7 @@ public class User {
 	private String bio;
 	private String address;
 	private String dob;
+	private String profilePicture;
 	
 	@OneToMany(mappedBy = "author", cascade = CascadeType.PERSIST)
 	private Set<Post> posts;
@@ -58,7 +59,7 @@ public class User {
 	 * @param likedPosts  posts that a user has liked
 	 */
 	public User(int userId, String username, String password, String email, String firstname, String lastname,
-			String phoneNumber, String occupation, String bio, String address, String dob, Set<Post> posts) {
+			String phoneNumber, String occupation, String bio, String address, String dob, Set<Post> posts, String profilePicture) {
 		super();
 		this.userId = userId;
 		this.username = username;
@@ -72,6 +73,7 @@ public class User {
 		this.address = address;
 		this.dob = dob;
 		this.posts = posts;
+		this.profilePicture = profilePicture;
 	}
 
 	public User() {
@@ -187,6 +189,14 @@ public class User {
 		return "User [userId=" + userId + ", username=" + username + ", password=" + password + ", email=" + email
 				+ ", firstname=" + firstname + ", lastname=" + lastname + ", phoneNumber=" + phoneNumber
 				+ ", occupation=" + occupation + ", bio=" + bio + ", address=" + address + ", dob=" + dob + ", posts=" + posts + "]";
+	}
+
+	public String getProfilePicture() {
+		return profilePicture;
+	}
+
+	public void setProfilePicture(String profilePicture) {
+		this.profilePicture = profilePicture;
 	}
 
 	/*
