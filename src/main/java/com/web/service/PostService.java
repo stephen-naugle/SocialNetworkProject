@@ -68,7 +68,7 @@ public class PostService {
 	 */
 	public List<Post> findAllByUser(String username) {
 		return pd.findAll().stream()
-				.filter(p -> p.getAuthor().equals(username))
+				.filter(p -> p.getAuthor().getUsername().equals(username))
 				.collect(Collectors.toList());
 	}
 }

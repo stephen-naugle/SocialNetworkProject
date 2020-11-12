@@ -53,9 +53,7 @@ private SessionFactory sessfact;
 	 */
 	@Override
 	public Post update(Post t) {
-		Session sess = sessfact.openSession();
-		sess.update(t);
-		sess.flush();
+		sessfact.getCurrentSession().update(t);
 		return t;
 	}
 
