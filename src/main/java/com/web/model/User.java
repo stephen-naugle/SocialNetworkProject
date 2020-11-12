@@ -33,7 +33,7 @@ public class User {
 	private String bio;
 	private String address;
 	private String dob;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "author")
 	private Set<Post> posts;
 
 	@Transient

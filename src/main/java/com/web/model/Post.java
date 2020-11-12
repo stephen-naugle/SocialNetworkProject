@@ -34,10 +34,10 @@ public class Post {
 	 * @param body body of the post
 	 */
 	
-	public Post(int postId, User owner, String title, String body) {
+	public Post(int postId, User author, String title, String body) {
 		super();
 		this.postId = postId;
-		this.author = owner;
+		this.author = author;
 		this.title = title;
 		this.body = body;
 	}
