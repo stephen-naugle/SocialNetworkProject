@@ -4,14 +4,12 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.web.model.Post;
@@ -90,8 +88,8 @@ public class PostController {
 	 * @return list of posts by user
 	 */
 	
-	@PostMapping("/findpostsbyuser")
-	public List<Post> findAllByUser(@RequestBody String username) {
+	@GetMapping("/findpostsbyuser")
+	public List<Post> findAllByUser(@RequestParam String username) {
 		logger.info("Found all posts by username.");
 		return ps.findAllByUser(username);
 	}
