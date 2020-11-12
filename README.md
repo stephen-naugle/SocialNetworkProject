@@ -1,5 +1,5 @@
 Project2
-
+jhg
 Git instructions:
 
 	Create (and switch to) new branch:
@@ -39,5 +39,5 @@ Git instructions:
 		to view a file that shows the changes which will be made. WHEN THIS FILE IS CLOSED THE CHANGES WILL TAKE PLACE.	
 
 
-(I'm not sure about how some of this stuff works)        
+(I'm not sure about how some of this stuff works)         
 
