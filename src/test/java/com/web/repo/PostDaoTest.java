@@ -30,8 +30,8 @@ public class PostDaoTest {
 		ac = new ClassPathXmlApplicationContext("config-test.xml");
 		pd = ac.getBean(PostDao.class);
 		User user = new User(1, "some username", "some pass", "some email", "some first", "some last", "some num",
-				"some occupation", "some bio", "some address", "some date", null);
-		post = new Post(1, user, "Testing Post", "This post is all about testing.");
+				"some occupation", "some bio", "some address", "some date", null, null);
+		post = new Post(1, user, "Testing Post", "This post is all about testing.", null);
 		pd.save(post);
 	}
 	

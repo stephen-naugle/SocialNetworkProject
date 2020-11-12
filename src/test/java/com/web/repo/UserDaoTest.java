@@ -30,7 +30,7 @@ public class UserDaoTest {
 		ac = new ClassPathXmlApplicationContext("config-test.xml");
 		ud = ac.getBean(UserDao.class);
 		user = new User(1, "some username", "some pass", "some email", "some first", "some last", "some num",
-				"some occupation", "some bio", "some address", "some date", null);
+				"some occupation", "some bio", "some address", "some date", null, null);
 		ud.save(user);
 	}
 	

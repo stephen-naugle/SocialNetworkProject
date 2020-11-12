@@ -31,7 +31,7 @@ public class UserControllerTest {
 		uc = new UserController();
 		uc.setUs(usMock);
 		user = new User(1, "some username", "some pass", "some email", "some first", "some last", "some num",
-				"some occupation", "some bio", "some address", "some date", null);
+				"some occupation", "some bio", "some address", "some date", null, null);
 	}
 	
 	@Test

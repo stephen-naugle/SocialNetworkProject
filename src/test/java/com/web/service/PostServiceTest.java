@@ -31,8 +31,8 @@ public class PostServiceTest {
 		ps = new PostService();
 		ps.setPd(pdMock);
 		User user = new User(1, "some username", "some pass", "some email", "some first", "some last", "some num",
-				"some occupation", "some bio", "some address", "some date", null);
-		post = new Post(1, user, "Testing Post", "This post is all about testing.");
+				"some occupation", "some bio", "some address", "some date", null, null);
+		post = new Post(1, user, "Testing Post", "This post is all about testing.", null);
 	}
 	
 	@Test
