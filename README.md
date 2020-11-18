@@ -1,43 +1,34 @@
-Project2
-jhg
-Git instructions:
+Sticky Social Network (Backend)
+===============================
 
-	Create (and switch to) new branch:
-		git checkout -b (your branch name here)
-	Change active branch:
-		git checkout (branch name)
-	
-	Commands related to saving incremental changes you make locally:
+Sticky is a social network we developed to connect individuals within a centralized webapp.
 
-		git status
-			Check what files have been changed and what's staged for commit.
-		git add (file name)
-			Adds a specific file to staging (either a new one or one you've modified)
-		git commit -m ""  
-			Please be specific with commit comments
-		git push
-			This just updates your current branch with the changes you've made.
+This is the repository for our custom backend API, developed in conjunction with the React application (link towards the bottom of this document).
 
-		
-	
-	WHEN IT COMES TO MERGING EVERYONE'S BRANCHES WITH MASTER:
+Features
+-------------------------------
 
-		When someone is ready to merge what they've been working on with Master, they'll need to create a pull reaquest
-		via the github UI. 
-			- A pull request will then need to be reviewed, and any merge conflicts will need to be handled.
-			- Once merge requests are handled, the master can be updated to include the code changed in your branch.
+ - Secure Password Encrryption
+ - Spring ORM Database Connectivity
+ - Over 60% Tested Code Coverage
+ - Create posts visible to all other users, Share images, customize your profile, and more
 
-	"BUT PAUL, OTHER BRANCHES HAVE BEEN MERGED TO THE MASTER AND NOW WHAT I'M WORKING ON IS NOW OUT OF DATE!"
+Intructions To Run
+-------------------------------
 
-		Have no fear.
-		From your branch you can use the command
-				git fetch
-		which will bring down the current copy of master to your branch (?).
-		
-		then you can use
-				git rebase -i master
-		to view a file that shows the changes which will be made. WHEN THIS FILE IS CLOSED THE CHANGES WILL TAKE PLACE.	
+ 1. Download files from repository.
+ 2. From a command line in the current directory, do `mvn clean install` in order to build the project.
+ 3. From there, the application can be run on a Server (in our case, we utilized a simple tomcat server which was configured with the project in Eclipse).
+ 4. Additionally, the user can connect a custom database configuration by altering the connection tags within src/main/resources/config.xml.
+ 
+ Features We Would Like To Add
+ ------------------------------
+  - Additional security measures beyond simple MD5 hashing
+  - (For the front end) Better Styling and more user-friendly feedback on inputs.
+  - Faster load times via reconfiguring of Availability Zone hosting.
+ 
+ 
 
-
-(I'm not sure about how some of this stuff works)         
-
+ [Repository for Front End of Sticky](https://github.com/BenderPaul/Project2FrontEnd)
+ ------------------------------------------------------------
+ 
