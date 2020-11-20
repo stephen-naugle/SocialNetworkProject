@@ -29,6 +29,6 @@ Intructions To Run
  
  
 
- [Repository for Front End of Sticky](https://github.com/BenderPaul/Project2FrontEnd)
+ [Repository for Front End of Sticky](https://github.com/stephen-naugle/SocialNetworkProject-Frontend)
  ------------------------------------------------------------
  
